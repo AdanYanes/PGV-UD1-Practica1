@@ -1,3 +1,4 @@
+import java.io.File;
 import java.util.ArrayList;
 
 import net.salesianos.launcher.ProcessLauncher;
@@ -23,5 +24,19 @@ public class Main{
                 e.printStackTrace();
             }
         }
+
+        System.out.println("Según el texto: \n" + text);
+        for (String vowel : vocales) {
+            String outputFileName = "outputVowel" + vowel + ".txt";
+            String outputFileRoute = "./net/salesianos/outputs/" + outputFileName;
+            Integer vowelsFromFile = Utils.getTotalVowelsFrom(outputFileRoute);
+            vowelsCount += vowelsFromFile;
+
+            System.out.println("El texto tiene " + vowelsFromFile + " vocales \"" + vowel+ "\"");
+        
+            File outputFile = new File(outputFileRoute);
+            outputFile.delete();
+        }
+        System.out.println("En total hay " + vowelsCount + " vocales");
     }
 }
