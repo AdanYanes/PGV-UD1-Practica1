@@ -8,10 +8,10 @@ public class Main{
     public static void main(String[] args) {
         String text = Utils.getText("./lorem_ipsum.txt");
         ArrayList<Process>allProcesses = new ArrayList<>();
-        String[] vocales = {"A", "E", "I", "O", "U"};
+        String[] vowels = {"A", "E", "I", "O", "U"};
         Integer vowelsCount = 0;
         
-        for (String vowel : vocales) {
+        for (String vowel : vowels) {
             String outputFileName = "outputVowel" + vowel + ".txt";
             Process javaProcess = ProcessLauncher.initVowelCounterProcess(vowel, text, outputFileName);
             allProcesses.add(javaProcess);
@@ -26,7 +26,7 @@ public class Main{
         }
 
         System.out.println("Según el texto: \n" + text);
-        for (String vowel : vocales) {
+        for (String vowel : vowels) {
             String outputFileName = "outputVowel" + vowel + ".txt";
             String outputFileRoute = "./net/salesianos/outputs/" + outputFileName;
             Integer vowelsFromFile = Utils.getTotalVowelsFrom(outputFileRoute);
